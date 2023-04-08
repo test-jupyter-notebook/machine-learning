@@ -44,10 +44,10 @@ jobs:
 
     - name: Copy open-machine-learning-jupyter-book to juypter repository
       run: |
-        find machine-learning/open-machine-learning-jupyter-book/assignments -type f -name "*.md" -exec sed -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}images|https://test-jupyter-notebook.github.io/static/images|g; s|\.\./||g; s|/|\\/|g' {} \;
-        find machine-learning/open-machine-learning-jupyter-book/assignments -type f -name "*.ipynb" -exec sed -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}images|https://test-jupyter-notebook.github.io/static/images|g; s|\.\./||g; s|/|\\/|g' {} \;
-        find machine-learning/open-machine-learning-jupyter-book/assignments -type f -name "*.md" -exec sed -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./||g; s|/|\\/|g' {} \;
-        find machine-learning/open-machine-learning-jupyter-book/assignments -type f -name "*.ipynb" -exec sed -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./||g; s|/|\\/|g' {} \;
+        find machine-learning/open-machine-learning-jupyter-book/assignments -type f -name "*.md" -exec sed -E -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}images|https://test-jupyter-notebook.github.io/static/images|g; s|\.\./||g; s|/|\\/|g' {} \;
+        find machine-learning/open-machine-learning-jupyter-book/assignments -type f -name "*.ipynb" -exec sed -E -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}images|https://test-jupyter-notebook.github.io/static/images|g; s|\.\./||g; s|/|\\/|g' {} \;
+        find machine-learning/open-machine-learning-jupyter-book/assignments -type f -name "*.md" -exec sed -E -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./||g; s|/|\\/|g' {} \;
+        find machine-learning/open-machine-learning-jupyter-book/assignments -type f -name "*.ipynb" -exec sed -E -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./||g; s|/|\\/|g' {} \;
 
         cp -R machine-learning/open-machine-learning-jupyter-book/assignments demo/assignments
 
