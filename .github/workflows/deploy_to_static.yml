@@ -33,3 +33,21 @@ jobs:
         git add .
         git commit -m "Update images from machine-learning repository"
         git push
+
+
+    - name: Checkout demo repository
+      uses: actions/checkout@v2
+      with:
+        repository: test-jupyter-notebook/demo
+        token: ${{ secrets.GH_PAT }}
+        path: demo
+
+    - name: Sync open-machine-learning-jupyter-book to demo repository
+      run: |
+        rsync -av --delete open-machine-learning-jupyter-book/ demo/
+        cd demo
+        git config user.name "zyc95"
+        git config user.email "zhaoyucheng@live.cn"
+        git add .
+        git commit -m "Update content from machine-learning repository"
+        git push
