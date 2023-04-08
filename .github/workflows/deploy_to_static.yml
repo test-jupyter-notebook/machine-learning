@@ -21,9 +21,9 @@ jobs:
         token: ${{ secrets.GH_PAT }}
         path: static
 
-    - name: Copy images to static repository
+    - name: Copy assets to static repository
       run: |
-        cp -R machine-learning/images static/
+        cp -R machine-learning//open-machine-learning-jupyter-book/assets static/assets
 
     - name: Commit and push to static repository
       run: |
@@ -44,7 +44,7 @@ jobs:
 
     - name: Copy open-machine-learning-jupyter-book to juypter repository
       run: |
-        cp -R machine-learning/open-machine-learning-jupyter-book demo/open-machine-learning-jupyter-book
+        cp -R machine-learning/open-machine-learning-jupyter-book/assignments demo/assignments
 
     - name: Commit and push to static repository
       run: |
