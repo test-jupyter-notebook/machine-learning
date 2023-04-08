@@ -1,0 +1,35 @@
+name: Deploy to Static Repo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout machine-learning repository
+      uses: actions/checkout@v2
+      with:
+        path: machine-learning
+
+    - name: Checkout static repository
+      uses: actions/checkout@v2
+      with:
+        repository: test-jupyter-notebook/static
+        token: ${{ secrets.GH_PAT }}
+        path: static
+
+    - name: Copy images to static repository
+      run: |
+        cp -R machine-learning/images static/
+
+    - name: Commit and push to static repository
+      run: |
+        cd static
+        git config user.name "zyc95"
+        git config user.email "zhaoyucheng@live.cn"
+        git add .
+        git commit -m "Update images from machine-learning repository - $(date +'%Y-%m-%d %H:%M:%S')"
+        git push
