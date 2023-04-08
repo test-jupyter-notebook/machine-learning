@@ -48,11 +48,11 @@ jobs:
 
     - name: Commit and push to static repository
       run: |
-        find demo/assignments -type f -name "*.md" -exec sed -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}images|https://test-jupyter-notebook.github.io/static/images|g; s|\.\./||g; s|/|\\/|g' {} \;
-        find demo/assignments -type f -name "*.ipynb" -exec sed -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}images|https://test-jupyter-notebook.github.io/static/images|g; s|\.\./||g; s|/|\\/|g' {} \;
-        find demo/assignments -type f -name "*.md" -exec sed -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./||g; s|/|\\/|g' {} \;
-        find demo/assignments -type f -name "*.ipynb" -exec sed -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./||g; s|/|\\/|g' {} \;
         cd demo
+        find . -type f -name "*.md" -exec sed -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}images|https://test-jupyter-notebook.github.io/static/images|g; s|\.\./||g; s|/|\\/|g' {} \;
+        find . -type f -name "*.ipynb" -exec sed -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}images|https://test-jupyter-notebook.github.io/static/images|g; s|\.\./||g; s|/|\\/|g' {} \;
+        find . -type f -name "*.md" -exec sed -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./||g; s|/|\\/|g' {} \;
+        find . -type f -name "*.ipynb" -exec sed -i '' 's|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./\{1,\}assets|https://test-jupyter-notebook.github.io/static/assets|g; s|\.\./||g; s|/|\\/|g' {} \;
         git config user.name "zyc95"
         git config user.email "zhaoyucheng@live.cn"
         git add .
