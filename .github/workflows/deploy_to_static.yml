@@ -42,12 +42,15 @@ jobs:
         token: ${{ secrets.GH_PAT }}
         path: demo
 
-    - name: Sync open-machine-learning-jupyter-book to demo repository
+    - name: Copy open-machine-learning-jupyter-book to juypter repository
       run: |
-        rsync -av --delete open-machine-learning-jupyter-book/ demo/
+        cp -R machine-learning/open-machine-learning-jupyter-book demo/open-machine-learning-jupyter-book
+
+    - name: Commit and push to static repository
+      run: |
         cd demo
         git config user.name "zyc95"
         git config user.email "zhaoyucheng@live.cn"
         git add .
-        git commit -m "Update content from machine-learning repository" || true
+        git commit -m "Update images from machine-learning repository" || true
         git push
