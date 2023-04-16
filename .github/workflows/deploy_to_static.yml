@@ -58,4 +58,3 @@ jobs:
         git add .
         git commit -m "Update images from machine-learning repository" || true
         git push
-
